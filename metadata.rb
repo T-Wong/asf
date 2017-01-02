@@ -1,9 +1,9 @@
 name 'asf'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Tyler Wong'
+maintainer_email 'ty-w@live.com'
 license 'all_rights'
-description 'Installs/Configures asf'
-long_description 'Installs/Configures asf'
+description 'Installs/Configures ArchiSteamFarm'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.0'
 
 # The `issues_url` points to the location where issues for this cookbook are

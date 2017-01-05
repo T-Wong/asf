@@ -47,7 +47,7 @@ node['asf']['bots'].keys.each do |bot_name|
 end
 
 poise_service 'asf' do
-  command "/usr/bin/mono #{node['asf']['install']['path']}/ASF.exe --path=\"#{node['asf']['install']['path']}\" --server"
+  command "/usr/bin/mono #{node['asf']['install']['path']}/ASF.exe --path=#{node['asf']['install']['path']} --server"
   user 'asf'
   directory node['asf']['install']['path']
   restart_on_update true

@@ -2,7 +2,7 @@
 # Cookbook:: asf
 # Recipe:: mono
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Tyler Wong, All Rights Reserved.
 
 case node['platform']
 when 'debian', 'ubuntu'

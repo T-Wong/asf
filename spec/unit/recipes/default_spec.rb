@@ -2,7 +2,7 @@
 # Cookbook:: asf
 # Spec:: default
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Tyler Wong, All Rights Reserved.
 
 require 'spec_helper'
 

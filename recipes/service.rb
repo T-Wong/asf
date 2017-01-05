@@ -2,7 +2,7 @@
 # Cookbook:: asf
 # Recipe:: service
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Tyler Wong, All Rights Reserved.
 
 poise_service_user 'asf' do
   action :create

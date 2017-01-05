@@ -4,8 +4,8 @@
 #
 # Copyright:: 2017, Tyler Wong, All Rights Reserved.
 
-case node['platform']
-when 'debian', 'ubuntu'
+case node['platform_family']
+when 'debian'
   apt_repository 'mono-project' do
     uri 'http://download.mono-project.com/repo/debian'
     distribution 'wheezy'

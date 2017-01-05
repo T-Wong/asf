@@ -1,7 +1,7 @@
 # Source information
 default['asf']['source'] = 'https://github.com/JustArchi/ArchiSteamFarm/releases/download'
-default['asf']['version'] = '2.1.7.9'
-default['asf']['checksum'] = 'd9d7bea8036d4ca0cbb3e9a6e49f934f72fdf1e9c647e038a2648a54656dd8fc'
+default['asf']['version'] = '2.2.0.5'
+default['asf']['checksum'] = 'fc1da9028a874fb75e58e48a9d7c254580d659195f7e92dff29e157ccb7fb83e'
 
 # Default paths
 default['asf']['install']['path'] = '/opt/asf'

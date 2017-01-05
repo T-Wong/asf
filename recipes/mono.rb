@@ -4,21 +4,51 @@
 #
 # Copyright:: 2017, Tyler Wong, All Rights Reserved.
 
-packages = Array.new
+packages = []
 
 case node['platform_family']
-when 'debian'   # debian, ubuntu, linuxmint
-  apt_repository 'mono-project' do
+when 'debian'
+  # Needed by all debian based installs
+  apt_repository 'mono-wheezy' do
     uri 'http://download.mono-project.com/repo/debian'
     distribution 'wheezy'
     components ['main']
     key 'http://download.mono-project.com/repo/xamarin.gpg'
-    action :add
+  end
+
+  # For Ubuntu 13.10+ and Debian 8.0+
+  apt_repository 'mono-apache24-compat' do
+    uri 'http://download.mono-project.com/repo/debian'
+    distribution 'wheezy-apache24-compat'
+    components ['main']
+    key 'http://download.mono-project.com/repo/xamarin.gpg'
+    only_if do
+      (node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 13.10) ||
+        (node['platform'] == 'debian' && node['platform_version'].to_f >= 8.0)
+    end
+  end
+
+  # For Debian 8.0+
+  apt_repository 'mono-libjpeg62-compat' do
+    uri 'http://download.mono-project.com/repo/debian'
+    distribution 'wheezy-libjpeg62-compat'
+    components ['main']
+    key 'http://download.mono-project.com/repo/xamarin.gpg'
+    only_if { node['platform'] == 'debian' && node['platform_version'].to_f >= 8.0 }
+  end
+
+  # For Ubuntu 12.04
+  apt_repository 'mono-wheezy-libtiff-compat' do
+    uri 'http://download.mono-project.com/repo/debian'
+    distribution 'wheezy-libtiff-compat'
+    components ['main']
+    key 'http://download.mono-project.com/repo/xamarin.gpg'
+    only_if { node['platform'] == 'ubuntu' && ['precise'].include?(node['lsb']['codename']) }
   end
 
   packages = %w(mono-complete referenceassemblies-pcl ca-certificates-mono mono-xsp4)
 
-when 'rhel'     # oracle, centos, redhat
+when 'rhel', 'fedora'
   yum_package 'yum-utils' do
     action :install
   end
@@ -32,9 +62,13 @@ when 'rhel'     # oracle, centos, redhat
 
   packages = %w(mono-complete referenceassemblies-pcl)
 
-when 'suse'     # suse
+when 'suse'
+  zypper_repo 'mono-project' do
+    uri 'http://download.mono-project.com/repo/centos/'
+    action :add
+  end
 
-when 'fedora'   # fedora
+  packages = %w(mono-complete)
 
 else
   raise 'Unsupported platform!'

@@ -28,7 +28,7 @@ default['asf']['global'] = {
   'SteamProtocol' => 6,
   'UpdateChannel' => 1,
   'WCFHost' => '127.0.0.1',
-  'WCFPort' => 1242
+  'WCFPort' => 1242,
 }
 
 default['asf']['bots'] = {
@@ -61,6 +61,6 @@ default['asf']['bots'] = {
     'SteamParentalPIN' => '0',
     'SteamPassword' => 'null',
     'SteamTradeToken' => 'null',
-    'TradingPreferences' => 1
-  }
+    'TradingPreferences' => 1,
+  },
 }

@@ -40,7 +40,7 @@ node['asf']['bots'].keys.each do |bot_name|
     source 'bot.erb'
     owner 'asf'
     group 'asf'
-    mode '0750'
+    mode '0550'
     variables(bot_name: bot_name)
     action :create
   end

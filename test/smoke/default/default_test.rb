@@ -28,5 +28,5 @@ describe file('/opt/asf/config/bot_name.json') do
   it { should be_file }
   it { should be_owned_by 'asf' }
   its('group') { should eq 'asf' }
-  its('mode') { should cmp '0750' }
+  its('mode') { should cmp '0550' }
 end

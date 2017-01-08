@@ -22,6 +22,7 @@ when 'debian'
     distribution 'wheezy-apache24-compat'
     components ['main']
     key 'http://download.mono-project.com/repo/xamarin.gpg'
+    action :add
     only_if do
       (node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 13.10) ||
         (node['platform'] == 'debian' && node['platform_version'].to_f >= 8.0)
@@ -34,6 +35,7 @@ when 'debian'
     distribution 'wheezy-libjpeg62-compat'
     components ['main']
     key 'http://download.mono-project.com/repo/xamarin.gpg'
+    action :add
     only_if { node['platform'] == 'debian' && node['platform_version'].to_f >= 8.0 }
   end
 
@@ -43,6 +45,7 @@ when 'debian'
     distribution 'wheezy-libtiff-compat'
     components ['main']
     key 'http://download.mono-project.com/repo/xamarin.gpg'
+    action :add
     only_if { node['platform'] == 'ubuntu' && ['precise'].include?(node['lsb']['codename']) }
   end
 

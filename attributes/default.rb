@@ -31,36 +31,4 @@ default['asf']['global'] = {
   'WCFPort' => 1242,
 }
 
-default['asf']['bots'] = {
-  'bot_name' => {
-    'AcceptConfirmationsPeriod' => 0,
-    'AcceptGifts' => 'false',
-    'CardDropsRestricted' => 'true',
-    'CustomGamePlayedWhileFarming' => 'null',
-    'CustomGamePlayedWhileIdle' => 'null',
-    'DismissInventoryNotifications' => 'true',
-    'DistributeKeys' => 'false',
-    'Enabled' => 'false',
-    'FarmingOrder' => 0,
-    'FarmOffline' => false,
-    'ForwardKeysToOtherBots' => 'false',
-    'GamesPlayedWhileIdle' => [],
-    'HandleOfflineMessages' => 'false',
-    'IsBotAccount' => 'false',
-    'LootableTypes' => [1, 3, 5],
-    'PasswordFormat' => 0,
-    'Paused' => 'false',
-    'RedeemingPreferences' => 0,
-    'SendOnFarmingFinished' => 'false',
-    'SendTradePeriod' => 0,
-    'ShutdownOnFarmingFinished' => 'false',
-    'SteamApiKey' => 'null',
-    'SteamLogin' => 'null',
-    'SteamMasterClanID' => 0,
-    'SteamMasterID' => 0,
-    'SteamParentalPIN' => '0',
-    'SteamPassword' => 'null',
-    'SteamTradeToken' => 'null',
-    'TradingPreferences' => 1,
-  },
-}
+default['asf']['bots'] = {}

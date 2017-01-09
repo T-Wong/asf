@@ -24,6 +24,7 @@ remote_file "#{node['asf']['install']['path']}/ASF.exe" do
   owner 'asf'
   group 'asf'
   mode '0755'
+  notifies :restart, 'poise_service[asf]', :delayed
   action :create
 end
 
@@ -32,6 +33,7 @@ template "#{node['asf']['config']['path']}/ASF.json" do
   owner 'asf'
   group 'asf'
   mode '0755'
+  notifies :restart, 'poise_service[asf]', :delayed
   action :create
 end
 
@@ -42,6 +44,7 @@ node['asf']['bots'].keys.each do |bot_name|
     group 'asf'
     mode '0550'
     variables(bot_name: bot_name)
+    notifies :restart, 'poise_service[asf]', :delayed
     action :create
   end
 end

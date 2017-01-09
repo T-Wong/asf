@@ -20,6 +20,9 @@ platforms:
   - name: ubuntu-14.04
   - name: ubuntu-16.04
 
+busser:
+  sudo: true
+
 suites:
   - name: default
     run_list:

@@ -13,6 +13,9 @@ provisioner:
 verifier:
   name: inspec
 
+busser:
+  sudo: true
+
 platforms:
   - name: centos-7
     driver:

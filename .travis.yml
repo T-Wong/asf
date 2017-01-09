@@ -24,7 +24,7 @@ env:
     - INSTANCE=fedora-24
     - INSTANCE=fedora-25
     - INSTANCE=opensuse-132
-    - INSTANCE=opensuse-leap-421
+    - INSTANCE=opensuse-421
     - INSTANCE=ubuntu-1204
     - INSTANCE=ubuntu-1404
     - INSTANCE=ubuntu-1604

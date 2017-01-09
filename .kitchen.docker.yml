@@ -17,21 +17,42 @@ platforms:
   - name: centos-7
     driver:
       image: centos:7
-  - name: debian-8.6
+      platform: rhel
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN yum -y install lsof which systemd-sysv initscripts
+  - name: debian-8
     driver:
-      image: debian:8.6
+      image: debian:8
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+        - RUN /usr/bin/apt-get install lsb-release -y
   - name: fedora-24
     driver:
       image: fedora:24
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN dnf -y install yum which systemd-sysv initscripts
   - name: fedora-25
     driver:
       image: fedora:25
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN dnf -y install yum which systemd-sysv initscripts
   - name: opensuse-13.2
     driver:
       image: opensuse:13.2
-  - name: opensuse-leap-42.1
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive which
+
+  - name: opensuse-42.1
     driver:
       image: opensuse:42.1
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN zypper --non-interactive install aaa_base perl-Getopt-Long-Descriptive which
   - name: ubuntu-12.04
     driver:
       image: ubuntu-upstart:12.04

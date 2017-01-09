@@ -1,7 +1,6 @@
----
 driver:
   name: dokken
-  chef_rimate: chef/chef
+  chef_image: chef/chef
   chef_version: current
   privileged: true
 
@@ -9,8 +8,7 @@ transport:
   name: dokken
 
 provisioner:
-  name: chef_zero
-  always_update_cookbooks: true
+  name: dokken
 
 verifier:
   name: inspec

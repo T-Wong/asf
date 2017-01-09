@@ -1,7 +1,7 @@
 # ArchiSteamFarm
 [![Build Status](https://travis-ci.org/T-Wong/asf.svg?branch=master)](https://travis-ci.org/T-Wong/asf) [![Code Climate](https://codeclimate.com/github/T-Wong/asf/badges/gpa.svg)](https://codeclimate.com/github/T-Wong/asf) [![Cookbook Version](https://img.shields.io/cookbook/v/asf.svg)](https://supermarket.chef.io/cookbooks/asf)
 
-Installs and configures ArchiSteamFarm on a server system.
+Installs and configures [ArchiSteamFarm](https://github.com/JustArchi/ArchiSteamFarm) on a server system.
 
 ## Requirements
 ### Platforms
@@ -19,7 +19,7 @@ Installs and configures ArchiSteamFarm on a server system.
 * `node['asf']['checksum']` - The SHA256 checksum of the `ASF.exe` for the version that you want to install.
 
 ### Install and configuration Paths
-* `node['asf']['install']['path']` - Path to where to install ArchiSteamFarm. By default, this cookbook will install to `/opt/asf`.
+* `node['asf']['install']['path']` - Path to where to install ArchiSteamFarm. By default, this cookbook will install ArchiSteamFarm to `/opt/asf`.
 * `node['asf']['config']['path']` - Path to where to store the global and bot configuration files. By default, this cookbook will place these into `/opt/asf/config`.
 
 ### Global and bot configuration

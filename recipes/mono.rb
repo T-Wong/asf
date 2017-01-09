@@ -68,6 +68,7 @@ when 'rhel', 'fedora'
 when 'suse'
   zypper_repo 'mono-project' do
     uri 'http://download.mono-project.com/repo/centos/'
+    key 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF'
     action :add
   end
 

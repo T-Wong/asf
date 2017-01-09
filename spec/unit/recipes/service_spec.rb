@@ -76,7 +76,7 @@ describe 'asf::service' do
     end
 
     it 'creates a new service' do
-      expect(chef_run).to enable_posie_service('asf')
+      expect(chef_run).to enable_poise_service('asf')
     end
   end
 end

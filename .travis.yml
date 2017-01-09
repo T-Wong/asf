@@ -1,9 +1,10 @@
 # Use Travis's cointainer based infrastructure
-sudo: false
+sudo: required
+dist: trusty
 addons:
   apt:
     sources:
-      - chef-current-precise
+      - chef-current-trusty
     packages:
       - chefdk
 
@@ -14,12 +15,32 @@ branches:
   only:
     - master
 
-# Ensure we make ChefDK's Ruby the default
+services: docker
+
+env:
+  matrix:
+    - INSTANCE=centos-7
+    - INSTANCE=debian-8
+    - INSTANCE=fedora-latest
+    - INSTANCE=opensuse-132
+    - INSTANCE=opensuse-421
+    - INSTANCE=ubuntu-1204
+    - INSTANCE=ubuntu-1404
+    - INSTANCE=ubuntu-1604
+
 before_script:
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
 
-script:
-  - /opt/chefdk/embedded/bin/chef --version
-  - /opt/chefdk/embedded/bin/cookstyle --version
-  - /opt/chefdk/embedded/bin/foodcritic --version
-  - /opt/chefdk/bin/chef exec rake
+script: KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+
+matrix:
+  include:
+    - before_script:
+      - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+      - /opt/chefdk/embedded/bin/chef --version
+      - /opt/chefdk/embedded/bin/cookstyle --version
+      - /opt/chefdk/embedded/bin/foodcritic --version
+    - script:
+      - /opt/chefdk/bin/chef exec rake
+      env: UNIT_AND_LINT=1

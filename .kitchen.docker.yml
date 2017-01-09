@@ -1,0 +1,45 @@
+---
+driver:
+  name: dokken
+  chef_rimate: chef/chef
+  chef_version: current
+  privileged: true
+
+transport:
+  name: dokken
+
+provisioner:
+  name: chef_zero
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: centos-7.2
+    driver:
+      image: centos:7
+  - name: debian-8.6
+    driver:
+      image: debian:8.6
+  - name: fedora-24
+    driver:
+      image: fedora:24
+  - name: fedora-25
+    driver:
+      image: fedora:25
+  - name: opensuse-13.2
+    driver:
+      image: opensuse:13.2
+  - name: opensuse-leap-42.1
+    driver:
+      image: opensuse:42.1
+  - name: ubuntu-12.04
+    driver:
+      image: ubuntu:12.04
+  - name: ubuntu-14.04
+    driver:
+      image: ubuntu:14.04
+  - name: ubuntu-16.04
+    driver:
+      image: ubuntu:16.04

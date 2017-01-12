@@ -1,5 +1,5 @@
 # ArchiSteamFarm
-[![Build Status](https://travis-ci.org/T-Wong/asf.svg?branch=master)](https://travis-ci.org/T-Wong/asf) [![Code Climate](https://codeclimate.com/github/T-Wong/asf/badges/gpa.svg)](https://codeclimate.com/github/T-Wong/asf) [![Cookbook Version](https://img.shields.io/cookbook/v/asf.svg)](https://supermarket.chef.io/cookbooks/asf)
+[![Build Status](https://travis-ci.org/T-Wong/asf.svg?branch=master)](https://travis-ci.org/T-Wong/asf) [![Cookbook Version](https://img.shields.io/cookbook/v/asf.svg)](https://supermarket.chef.io/cookbooks/asf)
 
 Installs and configures [ArchiSteamFarm](https://github.com/JustArchi/ArchiSteamFarm) on a server system.
 

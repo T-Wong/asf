@@ -1,21 +1,63 @@
-require 'rubocop/rake_task'
-require 'foodcritic'
-require 'rspec/core/rake_task'
-require 'stove/rake_task'
+# Style tests. cookstyle (rubocop) and Foodcritic
+namespace :style do
+  begin
+    require 'cookstyle'
+    require 'rubocop/rake_task'
 
-task default: [:rubocop, :foodcritic, :spec]
+    desc 'Run Ruby style checks'
+    RuboCop::RakeTask.new(:ruby)
+  rescue LoadError => e
+    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
+  end
 
-FoodCritic::Rake::LintTask.new do |t|
-  t.options = {
-    cookbook_paths: '.',
-    search_gems: true
-  }
+  begin
+    require 'foodcritic'
+
+    desc 'Run Chef style checks'
+    FoodCritic::Rake::LintTask.new(:chef) do |t|
+      t.options = {
+        fail_tags: ['any'],
+        progress: true,
+      }
+    end
+  rescue LoadError
+    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
+  end
 end
 
-RSpec::Core::RakeTask.new do |task|
-  task.pattern = 'spec/**/*_spec.rb'
-  task.rspec_opts = ['--color', '-f documentation', '-tunit']
+desc 'Run all style checks'
+task style: ['style:chef', 'style:ruby']
+
+# ChefSpec
+begin
+  desc 'Run ChefSpec examples'
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError => e
+  puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
 end
 
-RuboCop::RakeTask.new
-Stove::RakeTask.new
+# Integration tests. Kitchen.ci
+namespace :integration do
+  begin
+    require 'kitchen/rake_tasks'
+
+    desc 'Run kitchen integration tests'
+    Kitchen::RakeTasks.new
+  rescue StandardError => e
+    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
+  end
+end
+
+namespace :supermarket do
+  begin
+    desc 'Publish cookbook to Supermarket with Stove'
+    require 'stove/rake_task'
+    Stove::RakeTask.new
+  rescue LoadError => e
+    puts ">>> Gem load error: #{e}, omitting #{task.name}" unless ENV['CI']
+  end
+end
+
+# Default
+task default: %w(style spec)

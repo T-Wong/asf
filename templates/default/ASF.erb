@@ -1,0 +1,22 @@
+{
+	"AutoRestart": <%= node['asf']['global']['AutoRestart'] %>,
+	"AutoUpdates": <%= node['asf']['global']['AutoUpdates'] %>,
+	"Blacklist": <%= node['asf']['global']['Blacklist'] %>,
+	"Debug": <%= node['asf']['global']['Debug'] %>,
+	"FarmingDelay": <%= node['asf']['global']['FarmingDelay'] %>,
+	"ForceHttp": <%= node['asf']['global']['ForceHttp'] %>,
+	"GiftsLimiterDelay": <%= node['asf']['global']['GiftsLimiterDelay'] %>,
+	"Headless": <%= node['asf']['global']['Headless'] %>,
+	"HttpTimeout": <%= node['asf']['global']['HttpTimeout'] %>,
+	"IdleFarmingPeriod": <%= node['asf']['global']['IdleFarmingPeriod'] %>,
+	"InventoryLimiterDelay": <%= node['asf']['global']['InventoryLimiterDelay'] %>,
+	"LoginLimiterDelay": <%= node['asf']['global']['LoginLimiterDelay'] %>,
+	"MaxFarmingTime": <%= node['asf']['global']['MaxFarmingTime'] %>,
+	"MaxTradeHoldDuration": <%= node['asf']['global']['MaxTradeHoldDuration'] %>,
+	"Statistics": <%= node['asf']['global']['Statistics'] %>,
+	"SteamOwnerID": <%= node['asf']['global']['SteamOwnerID'] %>,
+	"SteamProtocol": <%= node['asf']['global']['SteamProtocol'] %>,
+	"UpdateChannel": <%= node['asf']['global']['UpdateChannel'] %>,
+	"WCFHost": <%= node['asf']['global']['WCFHost'] == 'null' ? node['asf']['global']['WCFHost'] : "\"#{node['asf']['global']['WCFHost']}\"" %>,
+	"WCFPort": <%= node['asf']['global']['WCFPort'] %>
+}

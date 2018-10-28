@@ -1,12 +1,13 @@
 name 'asf'
 maintainer 'Tyler Wong'
 maintainer_email 'ty-w@live.com'
-license 'Apache 2.0'
+license 'Apache-2.0'
 description 'Installs/Configures ArchiSteamFarm'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.0.0'
-issues_url 'https://github.com/T-Wong/asf/issues' if respond_to?(:issues_url)
-source_url 'https://github.com/T-Wong/asf' if respond_to?(:source_url)
+issues_url 'https://github.com/T-Wong/asf/issues'
+source_url 'https://github.com/T-Wong/asf'
+chef_version '>= 12.15'
 
 supports 'centos', '>= 7.0'
 supports 'debian', '>= 7.0'

@@ -7,10 +7,10 @@ Installs and configures [ArchiSteamFarm](https://github.com/JustArchi/ArchiSteam
 ### Platforms
 * CentOS 7+
 * Debian 8+
-* Fedora 24+
-* openSUSE 13+
+* Fedora 26+
+* openSUSE 42.2+
 * RHEL 7+
-* Ubuntu 12.04+
+* Ubuntu 14.04+
 
 ## attributes
 ### Source Information

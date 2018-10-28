@@ -39,16 +39,6 @@ when 'debian'
     only_if { node['platform'] == 'debian' && node['platform_version'].to_f >= 8.0 }
   end
 
-  # For Ubuntu 12.04
-  apt_repository 'mono-wheezy-libtiff-compat' do
-    uri 'http://download.mono-project.com/repo/debian'
-    distribution 'wheezy-libtiff-compat'
-    components ['main']
-    key 'http://download.mono-project.com/repo/xamarin.gpg'
-    action :add
-    only_if { node['platform'] == 'ubuntu' && ['precise'].include?(node['lsb']['codename']) }
-  end
-
   packages = %w(mono-complete referenceassemblies-pcl ca-certificates-mono mono-xsp4)
 
 when 'rhel', 'fedora'
